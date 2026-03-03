@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Zetevnia{% endblock %} - AI Araç Kutusu</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🧠</div>
+                    <div class="sidebar-logo-text">
+                        <h1>Zetevnia</h1>
+                        <span>AI Araç Kutusu</span>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title" data-i18n="nav.modules">Modüller</div>
+
+                    <a href="/rakam-tahmini" class="nav-item {% if active_page == 'rakam-tahmini' %}active{% endif %}">
+                        <span class="nav-item-icon">✏️</span>
+                        <span data-i18n="nav.numberRecognition">Rakam Tahmini</span>
+                        <span class="nav-item-badge" data-i18n="nav.active">Aktif</span>
+                    </a>
+
+                    <a href="/tb-tahmin" class="nav-item {% if active_page == 'tb-tahmin' %}active{% endif %}">
+                        <span class="nav-item-icon">🔬</span>
+                        <span data-i18n="tb.navTitle">TB Tahmin</span>
+                        <span class="nav-item-badge" data-i18n="nav.active">Aktif</span>
+                    </a>
+
+                    <a href="#" class="nav-item" style="opacity: 0.5; pointer-events: none;">
+                        <span class="nav-item-icon">🖼️</span>
+                        <span data-i18n="nav.imageRecognition">Görsel Tanıma</span>
+                        <span class="nav-item-badge" style="background: var(--gray-400);"
+                            data-i18n="nav.comingSoon">Yakında</span>
+                    </a>
+
+                    <a href="#" class="nav-item" style="opacity: 0.5; pointer-events: none;">
+                        <span class="nav-item-icon">🎤</span>
+                        <span data-i18n="nav.audioProcessing">Ses İşleme</span>
+                        <span class="nav-item-badge" style="background: var(--gray-400);"
+                            data-i18n="nav.comingSoon">Yakında</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title" data-i18n="nav.system">Sistem</div>
+
+                    <a href="/" class="nav-item {% if active_page == 'anasayfa' %}active{% endif %}">
+                        <span class="nav-item-icon">🏠</span>
+                        <span data-i18n="nav.home">Ana Sayfa</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <!-- Dil Seçici -->
+                <div class="language-selector">
+                    <button class="lang-btn" data-lang="tr" title="Türkçe">🇹🇷 TR</button>
+                    <button class="lang-btn" data-lang="en" title="English">🇬🇧 EN</button>
+                </div>
+
+                <!-- Tema Değiştir -->
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="theme-toggle-icon">
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </span>
+                    <span class="theme-toggle-text" data-i18n="theme.toggle">Tema Değiştir</span>
+                </button>
+
+                <div class="sidebar-footer-info" style="margin-top: 0.75rem;">
+                    <span class="status-dot"></span>
+                    <span data-i18n="stats.serverActive">Sunucu Aktif</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle" aria-label="Menüyü Aç/Kapat">
+        ☰
+    </button>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', path='js/i18n.js') }}"></script>
+    <script src="{{ url_for('static', path='js/app.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

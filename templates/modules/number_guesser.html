@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Rakam Tahmini{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title" data-i18n="numberRecognition.title">Rakam Tahmini</h1>
+    <p class="page-subtitle" data-i18n="numberRecognition.subtitle">Çok basamaklı sayıları çizin, yapay zeka tanısın</p>
+</div>
+
+<div class="canvas-container">
+    <!-- Drawing Area -->
+    <div class="drawing-area">
+        <div class="canvas-wrapper">
+            <div class="canvas-label">
+                <span class="canvas-label-text">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.586 7.586"></path>
+                        <circle cx="11" cy="11" r="2"></circle>
+                    </svg>
+                    <span data-i18n="numberRecognition.drawingArea">Çizim Alanı</span>
+                </span>
+                <span class="canvas-hint" data-i18n="numberRecognition.drawHint">Parmağınız veya farenizle çizin</span>
+            </div>
+            
+            <canvas id="drawingCanvas"></canvas>
+            
+            <div class="canvas-controls">
+                <button id="undoBtn" class="btn btn-outline btn-icon" data-i18n-title="numberRecognition.undo" title="Geri Al (Ctrl+Z)" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 7v6h6"></path>
+                        <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"></path>
+                    </svg>
+                </button>
+                
+                <button id="clearBtn" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18"></path>
+                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                    </svg>
+                    <span data-i18n="numberRecognition.clear">Temizle</span>
+                </button>
+                
+                <button id="predictBtn" class="btn btn-primary btn-lg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span data-i18n="numberRecognition.predict">Tahmin Et</span>
+                </button>
+                
+                <button id="downloadBtn" class="btn btn-outline btn-icon" data-i18n-title="numberRecognition.download" title="İndir (Ctrl+S)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Panel -->
+    <div class="result-panel">
+        <!-- Result Card -->
+        <div class="card result-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="card-title-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </span>
+                    <span data-i18n="numberRecognition.result">Tahmin Sonucu</span>
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="result-display">
+                    <div class="result-label" data-i18n="numberRecognition.recognizedNumber">Tanınan Sayı</div>
+                    <div id="resultValue" class="result-value placeholder">?</div>
+                    <div id="confidenceContainer" class="confidence-container" style="display: none;">
+                        <div class="confidence-bar-wrapper">
+                            <div id="confidenceBar" class="confidence-bar"></div>
+                        </div>
+                        <div id="confidenceText" class="confidence-text">%0 <span data-i18n="numberRecognition.confidence">Güven</span></div>
+                    </div>
+                    <div id="resultStatus" class="result-status">
+                        <span data-i18n="numberRecognition.drawAndPredict">Bir sayı çizin ve tahmin edin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions Card -->
+        <div class="card instructions-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="card-title-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </span>
+                    <span data-i18n="numberRecognition.howToUse">Nasıl Kullanılır?</span>
+                </h3>
+            </div>
+            <div class="card-body">
+                <ul class="instruction-list">
+                    <li class="instruction-item">
+                        <span class="instruction-number">1</span>
+                        <span class="instruction-text" data-i18n="numberRecognition.step1">Beyaz tuval üzerine istediğiniz sayıyı çizin (örn: 42, 100, 7)</span>
+                    </li>
+                    <li class="instruction-item">
+                        <span class="instruction-number">2</span>
+                        <span class="instruction-text" data-i18n="numberRecognition.step2">Rakamları yeterli aralıkla ve okunaklı yazın</span>
+                    </li>
+                    <li class="instruction-item">
+                        <span class="instruction-number">3</span>
+                        <span class="instruction-text" data-i18n="numberRecognition.step3">"Tahmin Et" butonuna basın veya Enter tuşunu kullanın</span>
+                    </li>
+                    <li class="instruction-item">
+                        <span class="instruction-number">4</span>
+                        <span class="instruction-text" data-i18n="numberRecognition.step4">Hata yaparsanız Ctrl+Z ile geri alın, Ctrl+S ile indirin</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- History Card -->
+        <div class="card history-card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <span class="card-title-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </span>
+                    <span data-i18n="history.title">Tahmin Geçmişi</span>
+                </h3>
+                <button id="clearHistoryBtn" class="btn btn-outline btn-sm" title="Geçmişi Temizle">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18"></path>
+                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="card-body history-body">
+                <div id="historyList" class="history-list">
+                    <!-- Geçmiş öğeleri JavaScript ile doldurulacak -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

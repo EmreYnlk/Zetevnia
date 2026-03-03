@@ -1,0 +1,139 @@
+{
+    "app": {
+        "name": "Zetevnia",
+        "tagline": "AI Toolbox"
+    },
+    "nav": {
+        "modules": "Modules",
+        "system": "System",
+        "home": "Home",
+        "apiDocs": "API Documentation",
+        "numberRecognition": "Number Recognition",
+        "textAnalysis": "Text Analysis",
+        "imageRecognition": "Image Recognition",
+        "audioProcessing": "Audio Processing",
+        "active": "Active",
+        "comingSoon": "Soon"
+    },
+    "home": {
+        "welcome": "Welcome",
+        "subtitle": "Zetevnia AI Toolbox - Modular Artificial Intelligence Platform",
+        "aboutTitle": "About Platform",
+        "aboutText": "Zetevnia is a LAN-accessible artificial intelligence platform designed with a modular structure. Each AI module works independently and new modules can be easily added.",
+        "ai": "Artificial Intelligence",
+        "aiDesc": "PyTorch based models",
+        "modular": "Modular Design",
+        "modularDesc": "Vertical Slicing architecture",
+        "lan": "LAN Access",
+        "lanDesc": "Network-wide usage",
+        "activeModules": "Active Modules",
+        "comingSoonModules": "Coming Soon"
+    },
+    "numberRecognition": {
+        "title": "Number Recognition",
+        "subtitle": "Draw multi-digit numbers, let AI recognize them",
+        "drawingArea": "Drawing Area",
+        "drawHint": "Draw with your finger or mouse",
+        "clear": "Clear",
+        "predict": "Predict",
+        "download": "Download",
+        "undo": "Undo",
+        "result": "Prediction Result",
+        "recognizedNumber": "Recognized Number",
+        "confidence": "Confidence",
+        "successfullyRecognized": "Successfully recognized",
+        "drawAndPredict": "Draw a number and predict",
+        "howToUse": "How to Use?",
+        "step1": "Draw any number on the white canvas (e.g., 42, 100, 7)",
+        "step2": "Write digits with adequate spacing and legibly",
+        "step3": "Click \"Predict\" button or press Enter",
+        "step4": "Made a mistake? Use Ctrl+Z to undo, Ctrl+S to download"
+    },
+    "stats": {
+        "title": "API Status & Statistics",
+        "serverActive": "Server Active",
+        "uptime": "Uptime",
+        "totalRequests": "Total Requests",
+        "today": "Today",
+        "predictions": "Predictions",
+        "avgConfidence": "Avg. Confidence",
+        "reset": "Reset"
+    },
+    "theme": {
+        "toggle": "Toggle Theme"
+    },
+    "toast": {
+        "canvasCleared": "Canvas cleared",
+        "undone": "Undone",
+        "noUndoAction": "Nothing to undo",
+        "downloaded": "Drawing downloaded",
+        "noDrawing": "No drawing to download",
+        "predictionSuccess": "Prediction successful!",
+        "predictionFailed": "Prediction failed",
+        "connectionError": "Could not connect to server",
+        "drawFirst": "Please draw a number first"
+    },
+    "language": {
+        "select": "Language",
+        "turkish": "Türkçe",
+        "english": "English"
+    },
+    "history": {
+        "title": "Prediction History",
+        "empty": "No predictions yet",
+        "clear": "Clear History",
+        "load": "Load",
+        "delete": "Delete",
+        "justNow": "Just now",
+        "minutesAgo": "min ago",
+        "hoursAgo": "hours ago"
+    },
+    "tb": {
+        "navTitle": "TB Prediction",
+        "title": "Tuberculosis Prediction",
+        "subtitle": "TB detection from chest X-ray - DenseNet Ensemble",
+        "modelSelection": "Select Model",
+        "xrayImage": "X-ray Image",
+        "xrayHint": "PNG or JPG format",
+        "dragDrop": "Drag chest X-ray image here",
+        "orSelect": "or select file",
+        "predictBtn": "Predict",
+        "resultTitle": "Prediction Result",
+        "diagnosis": "Diagnosis",
+        "uploadToPredict": "Upload X-ray and predict",
+        "foldDetails": "Fold Details (5-Fold Ensemble)",
+        "howToUse": "How to Use?",
+        "step1": "Select the model group you want to use",
+        "step2": "Drag and drop or select a chest X-ray image (PNG/JPG)",
+        "step3": "Click the \"Predict\" button",
+        "step4": "The 5-fold ensemble result and individual fold predictions will be displayed",
+        "noModel": "No Model",
+        "unsupportedFile": "Unsupported file format. Use PNG or JPG.",
+        "fileTooLarge": "File size too large. Maximum 10MB.",
+        "analyzing": "Analyzing...",
+        "working": "Running 5-fold ensemble...",
+        "tbDetected": "⚠️ Tuberculosis detected",
+        "tbNormal": "✅ Normal - No tuberculosis detected",
+        "error": "Error",
+        "predictFailed": "Prediction failed",
+        "confidence": "confidence",
+        "models": {
+            "densenet121_balanced": {
+                "name": "DenseNet-121 (Balanced)",
+                "desc": "DenseNet-121 architecture, trained with balanced dataset"
+            },
+            "densenet121_unbalanced": {
+                "name": "DenseNet-121 (Unbalanced)",
+                "desc": "DenseNet-121 architecture, trained with unbalanced dataset"
+            },
+            "densenet201_balanced": {
+                "name": "DenseNet-201 (Balanced)",
+                "desc": "DenseNet-201 architecture, trained with balanced dataset"
+            },
+            "densenet201_unbalanced": {
+                "name": "DenseNet-201 (Unbalanced)",
+                "desc": "DenseNet-201 architecture, trained with unbalanced dataset"
+            }
+        }
+    }
+}

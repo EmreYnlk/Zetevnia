@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-title" data-i18n="home.welcome">Hoş Geldiniz</h1>
+    <p class="page-subtitle" data-i18n="home.subtitle">Zetevnia AI Araç Kutusu - Modüler Yapay Zeka Platformu</p>
+</div>
+
+<div class="canvas-container" style="grid-template-columns: 1fr 1fr;">
+    <!-- Welcome Card -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">
+                <span class="card-title-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </span>
+                <span data-i18n="home.aboutTitle">Platform Hakkında</span>
+            </h3>
+        </div>
+        <div class="card-body">
+            <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;"
+                data-i18n="home.aboutText">
+                Zetevnia, modüler bir yapıda tasarlanmış LAN erişimli yapay zeka platformudur.
+                Her bir AI modülü bağımsız olarak çalışır ve kolayca yeni modüller eklenebilir.
+            </p>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="feature-box"
+                    style="flex: 1; min-width: 200px; padding: 1rem; background: var(--primary-50); border-radius: var(--radius-lg);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</div>
+                    <div style="font-weight: 600; color: var(--text-primary);" data-i18n="home.ai">Yapay Zeka</div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted);" data-i18n="home.aiDesc">PyTorch tabanlı
+                        modeller</div>
+                </div>
+
+                <div class="feature-box"
+                    style="flex: 1; min-width: 200px; padding: 1rem; background: var(--secondary-50); border-radius: var(--radius-lg);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔌</div>
+                    <div style="font-weight: 600; color: var(--text-primary);" data-i18n="home.modular">Modüler Yapı
+                    </div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted);" data-i18n="home.modularDesc">Katmanlı
+                        Mimari</div>
+                </div>
+
+                <div class="feature-box"
+                    style="flex: 1; min-width: 200px; padding: 1rem; background: var(--gray-100); border-radius: var(--radius-lg);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌐</div>
+                    <div style="font-weight: 600; color: var(--text-primary);" data-i18n="home.lan">LAN Erişimi</div>
+                    <div style="font-size: 0.875rem; color: var(--text-muted);" data-i18n="home.lanDesc">Ağ üzerinden
+                        kullanım</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Modules Card -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">
+                <span class="card-title-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </span>
+                <span data-i18n="home.activeModules">Aktif Modüller</span>
+            </h3>
+        </div>
+        <div class="card-body">
+            <a href="/rakam-tahmini" class="module-link">
+                <div class="module-card">
+                    <div class="module-icon">✏️</div>
+                    <div class="module-info">
+                        <div class="module-title" data-i18n="nav.numberRecognition">Rakam Tahmini</div>
+                        <div class="module-desc" data-i18n="numberRecognition.subtitle">El yazısı çok basamaklı sayı
+                            tanıma</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-500)"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/tb-tahmin" class="module-link">
+                <div class="module-card">
+                    <div class="module-icon">🔬</div>
+                    <div class="module-info">
+                        <div class="module-title" data-i18n="tb.navTitle">TB Tahmin</div>
+                        <div class="module-desc" data-i18n="tb.subtitle">Akciğer röntgeninden tüberküloz tespiti</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-500)"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- API Status Card -->
+<div class="card" style="margin-top: 1.5rem;">
+    <div class="card-header">
+        <h3 class="card-title">
+            <span class="card-title-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+            </span>
+            <span data-i18n="stats.title">API Durumu & İstatistikler</span>
+        </h3>
+    </div>
+    <div class="card-body">
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="status-dot"></span>
+                <span style="font-weight: 500; color: var(--text-primary);" data-i18n="stats.serverActive">Sunucu
+                    Aktif</span>
+            </div>
+            <div style="color: var(--text-muted); font-size: 0.875rem;">
+                <strong data-i18n="stats.uptime">Çalışma Süresi</strong>: <span id="uptimeDisplay">...</span>
+            </div>
+            <button id="resetStatsBtn" class="btn btn-outline btn-danger" style="margin-left: auto;"
+                title="İstatistikleri Sıfırla">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                    <path d="M3 3v5h5"></path>
+                </svg>
+                <span data-i18n="stats.reset">Sıfırla</span>
+            </button>
+        </div>
+
+        <!-- İstatistik Kartları -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+            <div class="stat-card">
+                <div class="stat-icon" style="background: var(--primary-100); color: var(--primary-500);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                </div>
+                <div class="stat-value" id="totalCallsValue">0</div>
+                <div class="stat-label" data-i18n="stats.totalRequests">Toplam İstek</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: var(--secondary-100); color: var(--secondary-500);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20V10"></path>
+                        <path d="M18 20V4"></path>
+                        <path d="M6 20v-4"></path>
+                    </svg>
+                </div>
+                <div class="stat-value" id="todayCallsValue">0</div>
+                <div class="stat-label" data-i18n="stats.today">Bugün</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon" style="background: var(--accent-100); color: var(--accent-500);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <div class="stat-value" id="predictionsValue">0</div>
+                <div class="stat-label" data-i18n="stats.predictions">Tahmin</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-warning">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                </div>
+                <div class="stat-value" id="avgConfidenceValue">%0</div>
+                <div class="stat-label" data-i18n="stats.avgConfidence">Ort. Güven</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    async function loadStats() {
+        try {
+            const response = await fetch('/api/stats/summary');
+            const data = await response.json();
+
+            document.getElementById('uptimeDisplay').textContent = data.uptime.formatted;
+            document.getElementById('totalCallsValue').textContent = data.total_api_calls;
+            document.getElementById('todayCallsValue').textContent = data.today_calls;
+
+            const rakamStats = data.modules.rakam_tahmini || {};
+            document.getElementById('predictionsValue').textContent = rakamStats.total_predictions || 0;
+            document.getElementById('avgConfidenceValue').textContent =
+                '%' + (rakamStats.average_confidence || 0).toFixed(1);
+        } catch (error) {
+            console.error('İstatistik yüklenemedi:', error);
+        }
+    }
+
+    async function resetStats() {
+        if (!confirm('Tüm istatistikleri sıfırlamak istediğinize emin misiniz?')) {
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/stats/reset', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: '{}'
+            });
+            if (response.ok) {
+                loadStats();
+                alert('İstatistikler sıfırlandı!');
+            }
+        } catch (error) {
+            console.error('Sıfırlama hatası:', error);
+            alert('Sıfırlama başarısız!');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadStats();
+        setInterval(loadStats, 30000);
+
+        const resetBtn = document.getElementById('resetStatsBtn');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', resetStats);
+        }
+    });
+</script>
+{% endblock %}

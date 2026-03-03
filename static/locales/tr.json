@@ -1,0 +1,139 @@
+{
+    "app": {
+        "name": "Zetevnia",
+        "tagline": "AI Araç Kutusu"
+    },
+    "nav": {
+        "modules": "Modüller",
+        "system": "Sistem",
+        "home": "Ana Sayfa",
+        "apiDocs": "API Dokümantasyonu",
+        "numberRecognition": "Rakam Tahmini",
+        "textAnalysis": "Metin Analizi",
+        "imageRecognition": "Görsel Tanıma",
+        "audioProcessing": "Ses İşleme",
+        "active": "Aktif",
+        "comingSoon": "Yakında"
+    },
+    "home": {
+        "welcome": "Hoş Geldiniz",
+        "subtitle": "Zetevnia AI Araç Kutusu - Modüler Yapay Zeka Platformu",
+        "aboutTitle": "Platform Hakkında",
+        "aboutText": "Zetevnia, modüler bir yapıda tasarlanmış LAN erişimli yapay zeka platformudur. Her bir AI modülü bağımsız olarak çalışır ve kolayca yeni modüller eklenebilir.",
+        "ai": "Yapay Zeka",
+        "aiDesc": "PyTorch tabanlı modeller",
+        "modular": "Modüler Yapı",
+        "modularDesc": "Vertical Slicing mimari",
+        "lan": "LAN Erişimi",
+        "lanDesc": "Ağ üzerinden kullanım",
+        "activeModules": "Aktif Modüller",
+        "comingSoonModules": "Yakında Eklenecekler"
+    },
+    "numberRecognition": {
+        "title": "Rakam Tahmini",
+        "subtitle": "Çok basamaklı sayıları çizin, yapay zeka tanısın",
+        "drawingArea": "Çizim Alanı",
+        "drawHint": "Parmağınız veya farenizle çizin",
+        "clear": "Temizle",
+        "predict": "Tahmin Et",
+        "download": "İndir",
+        "undo": "Geri Al",
+        "result": "Tahmin Sonucu",
+        "recognizedNumber": "Tanınan Sayı",
+        "confidence": "Güven",
+        "successfullyRecognized": "Başarıyla tanındı",
+        "drawAndPredict": "Bir sayı çizin ve tahmin edin",
+        "howToUse": "Nasıl Kullanılır?",
+        "step1": "Beyaz tuval üzerine istediğiniz sayıyı çizin (örn: 42, 100, 7)",
+        "step2": "Rakamları yeterli aralıkla ve okunaklı yazın",
+        "step3": "\"Tahmin Et\" butonuna basın veya Enter tuşunu kullanın",
+        "step4": "Hata yaparsanız Ctrl+Z ile geri alın, Ctrl+S ile indirin"
+    },
+    "stats": {
+        "title": "API Durumu & İstatistikler",
+        "serverActive": "Sunucu Aktif",
+        "uptime": "Çalışma Süresi",
+        "totalRequests": "Toplam İstek",
+        "today": "Bugün",
+        "predictions": "Tahmin",
+        "avgConfidence": "Ort. Güven",
+        "reset": "Sıfırla"
+    },
+    "theme": {
+        "toggle": "Tema Değiştir"
+    },
+    "toast": {
+        "canvasCleared": "Tuval temizlendi",
+        "undone": "Geri alındı",
+        "noUndoAction": "Geri alınacak işlem yok",
+        "downloaded": "Çizim indirildi",
+        "noDrawing": "İndirilecek çizim yok",
+        "predictionSuccess": "Tahmin başarılı!",
+        "predictionFailed": "Tahmin yapılamadı",
+        "connectionError": "Sunucu ile bağlantı kurulamadı",
+        "drawFirst": "Lütfen önce bir sayı çizin"
+    },
+    "language": {
+        "select": "Dil",
+        "turkish": "Türkçe",
+        "english": "English"
+    },
+    "history": {
+        "title": "Tahmin Geçmişi",
+        "empty": "Henüz tahmin yapılmadı",
+        "clear": "Geçmişi Temizle",
+        "load": "Yükle",
+        "delete": "Sil",
+        "justNow": "Az önce",
+        "minutesAgo": "dk önce",
+        "hoursAgo": "saat önce"
+    },
+    "tb": {
+        "navTitle": "TB Tahmin",
+        "title": "Tüberküloz Tahmin",
+        "subtitle": "Akciğer röntgeninden TB tespiti - DenseNet Ensemble",
+        "modelSelection": "Model Seçin",
+        "xrayImage": "Röntgen Görüntüsü",
+        "xrayHint": "PNG veya JPG formatında",
+        "dragDrop": "Röntgen görüntüsünü sürükleyin",
+        "orSelect": "veya dosya seçin",
+        "predictBtn": "Tahmin Et",
+        "resultTitle": "Tahmin Sonucu",
+        "diagnosis": "Teşhis",
+        "uploadToPredict": "Röntgen yükleyin ve tahmin edin",
+        "foldDetails": "Fold Detayları (5-Fold Ensemble)",
+        "howToUse": "Nasıl Kullanılır?",
+        "step1": "Kullanmak istediğiniz model grubunu seçin",
+        "step2": "Akciğer röntgen görüntüsünü sürükleyip bırakın veya dosya seçin (PNG/JPG)",
+        "step3": "\"Tahmin Et\" butonuna basın",
+        "step4": "5-fold ensemble sonucu ve her fold'un bireysel tahmini görüntülenir",
+        "noModel": "Model Yok",
+        "unsupportedFile": "Desteklenmeyen dosya formatı. PNG veya JPG kullanın.",
+        "fileTooLarge": "Dosya boyutu çok büyük. Maksimum 10MB.",
+        "analyzing": "Analiz ediliyor...",
+        "working": "5-fold ensemble çalışıyor...",
+        "tbDetected": "⚠️ Tüberküloz tespit edildi",
+        "tbNormal": "✅ Normal - Tüberküloz tespit edilmedi",
+        "error": "Hata",
+        "predictFailed": "Tahmin başarısız",
+        "confidence": "güven",
+        "models": {
+            "densenet121_balanced": {
+                "name": "DenseNet-121 (Dengeli)",
+                "desc": "DenseNet-121 mimarisi, dengeli veri seti ile eğitilmiş"
+            },
+            "densenet121_unbalanced": {
+                "name": "DenseNet-121 (Dengesiz)",
+                "desc": "DenseNet-121 mimarisi, dengesiz veri seti ile eğitilmiş"
+            },
+            "densenet201_balanced": {
+                "name": "DenseNet-201 (Dengeli)",
+                "desc": "DenseNet-201 mimarisi, dengeli veri seti ile eğitilmiş"
+            },
+            "densenet201_unbalanced": {
+                "name": "DenseNet-201 (Dengesiz)",
+                "desc": "DenseNet-201 mimarisi, dengesiz veri seti ile eğitilmiş"
+            }
+        }
+    }
+}
