@@ -70,16 +70,6 @@ python -m app.main
 
 The server runs on `http://localhost:8000` by default.
 
-### Start with HTTPS
-
-```bash
-# Generate certificate first
-python scripts/generate_cert.py
-
-# Start in HTTPS mode
-python -m app.main --ssl
-```
-
 ---
 
 ## Project Structure
