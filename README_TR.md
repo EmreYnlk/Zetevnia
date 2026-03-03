@@ -164,7 +164,7 @@ cp .env.example .env
 
 ---
 
-## 🔒 Güvenlik
+## Güvenlik
 
 - **Rate Limiting** — IP bazlı istek sınırlama (dakika & saat)
 - **Brute Force Koruması** — Başarısız denemeler sonrası geçici ban
@@ -174,7 +174,7 @@ cp .env.example .env
 
 ---
 
-## 🧪 Geliştirme
+## Geliştirme
 
 ```bash
 # Testleri çalıştır
@@ -187,8 +187,3 @@ ruff check .
 ruff format .
 ```
 
----
-
-## 📄 Lisans
-
-MIT License
