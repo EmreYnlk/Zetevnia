@@ -1,10 +1,10 @@
-# 🧠 Zetevnia AI Araç Kutusu
+# Zetevnia AI Araç Kutusu
 
 Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 
 ---
 
-## ✨ Özellikler
+##  Özellikler
 
 - **Rakam Tahmini** — Canvas üzerinde çizilen çok haneli sayıları CNN ile tanıma
 - **Karanlık Mod** — Tema desteği
@@ -14,7 +14,7 @@ Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 
 ---
 
-## 📦 Gereksinimler
+## Gereksinimler
 
 | Paket | Versiyon | Açıklama |
 |-------|----------|----------|
@@ -33,7 +33,7 @@ Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 
 ---
 
-## 🚀 Kurulum
+## Kurulum
 
 ```bash
 # 1. Repoyu klonla
@@ -55,7 +55,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Kullanım
+## Kullanım
 
 ### Hızlı Başlatma
 
@@ -81,7 +81,7 @@ python -m app.main --ssl
 
 ---
 
-## 📁 Proje Yapısı
+##  Proje Yapısı
 
 ```
 Zetevnia/
@@ -122,7 +122,7 @@ Zetevnia/
 
 ---
 
-## 🔌 API Endpoint'leri
+## API Endpoint'leri
 
 | Endpoint | Method | Açıklama |
 |----------|--------|----------|
@@ -136,7 +136,7 @@ Zetevnia/
 
 ---
 
-## ⚙️ Konfigürasyon
+## Konfigürasyon
 
 `.env.example` dosyasını `.env` olarak kopyalayıp düzenleyin:
 
@@ -157,7 +157,7 @@ cp .env.example .env
 
 ---
 
-## 🔒 Güvenlik
+##  Güvenlik
 
 - **Rate Limiting** — IP bazlı istek sınırlama (dakika & saat)
 - **Brute Force Koruması** — Başarısız denemeler sonrası geçici ban
@@ -167,7 +167,7 @@ cp .env.example .env
 
 ---
 
-## 🧪 Geliştirme
+##  Geliştirme
 
 ```bash
 # Testleri çalıştır
