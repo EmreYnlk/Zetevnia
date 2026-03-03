@@ -1,4 +1,4 @@
-# Zetevnia AI Araç Kutusu
+#  Zetevnia AI Araç Kutusu
 
 Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 
@@ -7,6 +7,7 @@ Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 ##  Özellikler
 
 - **Rakam Tahmini** — Canvas üzerinde çizilen çok haneli sayıları CNN ile tanıma
+- **Tüberküloz Tahmini** — Akciğer röntgenlerinden CNN ensemble modelleri ile TB tespiti
 - **Karanlık Mod** — Tema desteği
 - **Çok Dilli** — Türkçe / İngilizce
 - **API İstatistikleri** — Kullanım takibi ve anlık dashboard
@@ -14,7 +15,7 @@ Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 
 ---
 
-## Gereksinimler
+##  Gereksinimler
 
 | Paket | Versiyon | Açıklama |
 |-------|----------|----------|
@@ -33,11 +34,11 @@ Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 
 ---
 
-## Kurulum
+##  Kurulum
 
 ```bash
 # 1. Repoyu klonla
-git clone https://github.com/EmreYnlk/Zetevnia.git
+git clone https://github.com/<kullanıcı>/Zetevnia.git
 cd Zetevnia
 
 # 2. Virtual environment oluştur
@@ -55,7 +56,7 @@ pip install -r requirements.txt
 
 ---
 
-## Kullanım
+##  Kullanım
 
 ### Hızlı Başlatma
 
@@ -68,6 +69,18 @@ python -m app.main
 ```
 
 Sunucu varsayılan olarak `http://localhost:8000` adresinde çalışır.
+
+### HTTPS ile Başlatma
+
+```bash
+# Önce sertifika oluştur
+python scripts/generate_cert.py
+
+# HTTPS modunda başlat
+python -m app.main --ssl
+```
+
+---
 
 ##  Proje Yapısı
 
@@ -84,11 +97,14 @@ Zetevnia/
 │   ├── utils.py                # Yardımcı fonksiyonlar
 │   ├── api/                    # API router'ları
 │   │   ├── stats.py            # İstatistik endpoint'leri
+│   │   ├── tb_predictor.py     # TB tahmin endpoint'leri
 │   │   └── number_guesser.py   # Rakam tahmini endpoint'leri
 │   └── services/               # İş mantığı
+│       ├── tb_predictor.py     # TB tanıma servisi (Ensemble CNN)
 │       └── number_guesser.py   # Rakam tanıma servisi (CNN)
 ├── models/                     # Eğitilmiş ML modelleri
-│   └── rakam_cnn_model.pth     # CNN model ağırlıkları
+│   ├── rakam_cnn_model.pth     # CNN model ağırlıkları
+│   └── tb/                     # TB tahmin modelleri (DenseNet vb.)
 ├── static/                     # Web varlıkları
 │   ├── css/                    # Stil dosyaları
 │   ├── js/                     # JavaScript dosyaları
@@ -110,13 +126,16 @@ Zetevnia/
 
 ---
 
-## API Endpoint'leri
+## 🔌 API Endpoint'leri
 
 | Endpoint | Method | Açıklama |
 |----------|--------|----------|
 | `/` | `GET` | Ana sayfa |
 | `/rakam-tahmini` | `GET` | Rakam tahmini sayfası (canvas UI) |
+| `/tb-tahmin` | `GET` | Tüberküloz tahmini sayfası |
 | `/api/rakam/tahmin-et` | `POST` | Rakam tahmini API |
+| `/api/tb/models` | `GET` | Kullanılabilir TB modellerini listele |
+| `/api/tb/predict` | `POST` | Röntgen görüntüsünden TB tahmini API |
 | `/api/stats/summary` | `GET` | İstatistik özeti |
 | `/api/stats/recent` | `GET` | Son tahminler |
 | `/api/stats/hourly` | `GET` | Saatlik istatistikler |
@@ -124,7 +143,7 @@ Zetevnia/
 
 ---
 
-## Konfigürasyon
+## ⚙️ Konfigürasyon
 
 `.env.example` dosyasını `.env` olarak kopyalayıp düzenleyin:
 
@@ -145,7 +164,7 @@ cp .env.example .env
 
 ---
 
-##  Güvenlik
+## 🔒 Güvenlik
 
 - **Rate Limiting** — IP bazlı istek sınırlama (dakika & saat)
 - **Brute Force Koruması** — Başarısız denemeler sonrası geçici ban
@@ -155,7 +174,7 @@ cp .env.example .env
 
 ---
 
-##  Geliştirme
+## 🧪 Geliştirme
 
 ```bash
 # Testleri çalıştır
@@ -169,3 +188,7 @@ ruff format .
 ```
 
 ---
+
+## 📄 Lisans
+
+MIT License
