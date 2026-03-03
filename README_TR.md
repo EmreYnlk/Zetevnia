@@ -70,16 +70,6 @@ python -m app.main
 
 Sunucu varsayılan olarak `http://localhost:8000` adresinde çalışır.
 
-### HTTPS ile Başlatma
-
-```bash
-# Önce sertifika oluştur
-python scripts/generate_cert.py
-
-# HTTPS modunda başlat
-python -m app.main --ssl
-```
-
 ---
 
 ##  Proje Yapısı
