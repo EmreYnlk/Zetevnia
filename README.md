@@ -37,7 +37,7 @@ Modüler Yapay Zeka Platformu — FastAPI tabanlı, PyTorch destekli.
 
 ```bash
 # 1. Repoyu klonla
-git clone https://github.com/<kullanıcı>/Zetevnia.git
+git clone https://github.com/EmreYnlk/Zetevnia.git
 cd Zetevnia
 
 # 2. Virtual environment oluştur
@@ -68,18 +68,6 @@ python -m app.main
 ```
 
 Sunucu varsayılan olarak `http://localhost:8000` adresinde çalışır.
-
-### HTTPS ile Başlatma
-
-```bash
-# Önce sertifika oluştur
-python scripts/generate_cert.py
-
-# HTTPS modunda başlat
-python -m app.main --ssl
-```
-
----
 
 ##  Proje Yapısı
 
@@ -181,7 +169,3 @@ ruff format .
 ```
 
 ---
-
-## 📄 Lisans
-
-MIT License
